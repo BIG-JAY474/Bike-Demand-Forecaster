@@ -24,15 +24,17 @@ Validated data integrity (no missing values found).
 Through Exploratory Data Analysis, I discovered that temperature and seasonality are the strongest predictors.
 Key Feature Engineered: is_holiday_week.
 Why? I observed that standard "holiday" flags only cover single days, while bike demand stays low for the entire week surrounding Christmas and New Year. Adding this flag significantly improved performance during the holiday season.
+![Performance Plot]
+(Actual vs Predicted Rentals)
 
-5. Model Selection & Training
+6. Model Selection & Training
 Model: XGBoost Regressor (Extreme Gradient Boosting).
 Training Strategy:
 Time-Series Split: Trained on historical data from 2011 to late 2012.
 Validation: Reserved the final 60 days (Nov/Dec 2012) for testing to prevent "cheating" with future data.
 Implementation: Native categorical support enabled via enable_categorical=True.
 
-6. Evaluation & Testing
+7. Evaluation & Testing
 The final model was evaluated against the unseen 60-day test window:
 Mean Absolute Error (MAE): 842.83
 R-Squared (R²): 0.53
