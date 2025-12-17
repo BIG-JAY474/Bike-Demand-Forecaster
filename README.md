@@ -25,8 +25,7 @@ Through Exploratory Data Analysis, I discovered that temperature and seasonality
 Key Feature Engineered: is_holiday_week.
 Why? I observed that standard "holiday" flags only cover single days, while bike demand stays low for the entire week surrounding Christmas and New Year. Adding this flag significantly improved performance during the holiday season.
 
-![Performance Plot]
-([Actual vs Predicted Rentals.png](https://github.com/BIG-JAY474/Bike-Demand-Forecaster/blob/main/Actual%20vs%20Predicted%20Rentals.png))
+![Performance Plot]([Actual vs Predicted Rentals.png](https://github.com/BIG-JAY474/Bike-Demand-Forecaster/blob/main/Actual%20vs%20Predicted%20Rentals.png))
 
 6. Model Selection & Training
 Model: XGBoost Regressor (Extreme Gradient Boosting).
