@@ -1,26 +1,31 @@
 # Bike-Demand-Forecaster
-🚲 Bike Rental Demand Forecaster
+***🚲 Bike Rental Demand Forecaster***
+
 End-to-End Machine Learning Project | UCI Machine Learning Repository
 
 
-📌 Project Overview
-This project predicts daily bike rental demand using the UCI Bike Sharing Dataset. By analyzing seasonal patterns and weather conditions, the system provides actionable forecasts to optimize bike distribution and maintenance schedules.
+***📌 Project Overview***
 
-📈 The 6-Stage ML Workflow
+This project predicts daily bike rental demand using the [UCI Bike Sharing Dataset](archive.ics.uci.edu). By analyzing seasonal patterns and weather conditions, the system provides actionable forecasts to optimize bike distribution and maintenance schedules.
 
-1. Problem Definition
-Goal: Build a regression model to forecast daily total bike rentals.
+**📈 The 6-Stage ML Workflow**
+
+1. ***Problem Definition***
+
+***Goal***: Build a regression model to forecast daily total bike rentals.
 Business Impact: Minimize station "stockouts" and reduce overhead costs.
 Target Metric: Mean Absolute Error (MAE) < 850 rentals.
 
-3. Data Collection & Preparation
-Source: UCI Machine Learning Repository.
-Key Actions:
-Loaded 731 daily records (day.csv).
+3. ***Data Collection & Preparation***
+
+**<ins>Source</ins>**: [UCI Bike Sharing Dataset](archive.ics.uci.edu).
+
+***Key Actions***:
+Loaded 731 daily records [View the CSV Data](day.csv).
 Converted categorical features (season, weather) into proper data types.
 Validated data integrity (no missing values found).
 
-4. EDA & Feature Engineering
+5. EDA & Feature Engineering
 Through Exploratory Data Analysis, I discovered that temperature and seasonality are the strongest predictors.
 Key Feature Engineered: is_holiday_week.
 Why? I observed that standard "holiday" flags only cover single days, while bike demand stays low for the entire week surrounding Christmas and New Year. Adding this flag significantly improved performance during the holiday season.
