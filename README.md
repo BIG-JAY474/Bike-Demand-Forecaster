@@ -25,6 +25,10 @@ Loaded 731 daily records [View the CSV Data](day.csv).
 Converted categorical features (season, weather) into proper data types.
 Validated data integrity (no missing values found).
 
+![No missing values]<img width="480" height="334" alt="no_missing_values" src="https://github.com/user-attachments/assets/3887097b-b888-4824-a6d1-cb1110b24098" />
+
+
+
 5. EDA & Feature Engineering
 Through Exploratory Data Analysis, I discovered that temperature and seasonality are the strongest predictors.
 Key Feature Engineered: is_holiday_week.
