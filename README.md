@@ -16,7 +16,7 @@ This project predicts daily bike rental demand using the [UCI Bike Sharing Datas
 Business Impact: Minimize station "stockouts" and reduce overhead costs.
 Target Metric: Mean Absolute Error (MAE) < 850 rentals.
 
-3. ***Data Collection & Preparation***
+2. ***Data Collection & Preparation***
 
 **<ins>Source</ins>**: [UCI Bike Sharing Dataset](archive.ics.uci.edu).
 
@@ -25,32 +25,41 @@ Loaded 731 daily records [View the CSV Data](day.csv).
 Converted categorical features (season, weather) into proper data types.
 Validated data integrity (no missing values found).
 
-![No missing values]<img width="480" height="334" alt="no_missing_values" src="https://github.com/user-attachments/assets/3887097b-b888-4824-a6d1-cb1110b24098" />
+***![No missing values]***
+
+
+<img width="480" height="334" alt="no_missing_values" src="https://github.com/user-attachments/assets/3887097b-b888-4824-a6d1-cb1110b24098" />
 
 
 
-5. EDA & Feature Engineering
+3. ***EDA & Feature Engineering***
+
 Through Exploratory Data Analysis, I discovered that temperature and seasonality are the strongest predictors.
-Key Feature Engineered: is_holiday_week.
-Why? I observed that standard "holiday" flags only cover single days, while bike demand stays low for the entire week surrounding Christmas and New Year. Adding this flag significantly improved performance during the holiday season.
+***Key Feature Engineered***: is_holiday_week.
+
+***![Feature Engineered]***
+
+<img width="487" height="300" alt="feature_engineer" src="https://github.com/user-attachments/assets/e78a0625-2e13-4dd3-9bac-81fcfa2f1e92" />
+
+**Why?** I observed that standard "**holiday**" flags only cover single days, while bike demand stays low for the entire week surrounding Christmas and New Year. Adding this flag significantly improved performance during the holiday season.
 
 ![Performance Plot]<img width="1243" height="545" alt="Actual vs Predicted Rentals" src="https://github.com/user-attachments/assets/1824075b-8fb9-447f-80ce-d161ce6eae29" />
 
 
-6. Model Selection & Training
+4. Model Selection & Training
 Model: XGBoost Regressor (Extreme Gradient Boosting).
 Training Strategy:
 Time-Series Split: Trained on historical data from 2011 to late 2012.
 Validation: Reserved the final 60 days (Nov/Dec 2012) for testing to prevent "cheating" with future data.
 Implementation: Native categorical support enabled via enable_categorical=True.
 
-7. Evaluation & Testing
+5. Evaluation & Testing
 The final model was evaluated against the unseen 60-day test window:
 Mean Absolute Error (MAE): 842.83
 R-Squared (R²): 0.53
 Analysis: The model successfully captures the sharp demand "dips" during winter storms and the end-of-year holiday period.
 
-8. Deployment & Monitoring
+6. Deployment & Monitoring
 API: A FastAPI server (api_app.py) was developed to serve real-time predictions.
 Monitoring Strategy: I recommend tracking Data Drift (monitoring temperature changes) and Model Drift (tracking weekly MAE) to determine when the model requires retraining.
 📂 Repository Structure
